@@ -317,6 +317,7 @@ input[type=checkbox] {
 
   .btn:hover {
     background-color: #649B92;
+    text-decoration: none;
   }
 
 
