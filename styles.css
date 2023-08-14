@@ -153,10 +153,6 @@ body {
     text-align: center;
   }
 
-  section:last-of-type {
-    margin-bottom: 30px;
-  }
-
   .items-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

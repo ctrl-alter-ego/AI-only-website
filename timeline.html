@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrolling Timeline</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .timeline-container {
+            position: relative;
+            margin: 20vh auto;
+            width: 5px;
+            height: 80vh;
+            background: linear-gradient(to bottom, #00bfff, #ff1493);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .entry-container {
+            position: relative;
+            padding-bottom: 40px; /* Adjust this value as needed */
+            color: #6b6767;
+            font-size: 18px;
+            text-align: center;
+            
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .entry-container:nth-child(odd) {
+            align-self: flex-end;
+        }
+
+        .entry-container:nth-child(even) {
+            align-self: flex-start;
+        }
+
+        .dot {
+            position: absolute;
+            bottom: 0;
+            width: 20px;
+            height: 20px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="timeline-container">
+        <!-- Add your timeline entries here -->
+        <div class="entry-container">
+            <div class="entry">12th July 2023</div>
+            <div class="dot" style="left: 50%;"></div>
+        </div>
+
+        <div class="entry-container">
+            <div class="entry">Another Entry</div>
+            <div class="dot" style="left: 0%;"></div>
+        </div>
+
+        <div class="entry-container">
+            <div class="entry">Entry Right</div>
+            <div class="dot" style="right: 0%;"></div>
+        </div>
+
+        <div class="entry-container">
+            <div class="entry">Final Entry</div>
+            <div class="dot" style="left: 50%;"></div>
+        </div>
+    </div>
+
+    <script>
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.bottom <= window.innerHeight
+            );
+        }
+
+        function revealEntries() {
+            const entryContainers = document.querySelectorAll('.entry-container');
+            entryContainers.forEach((entryContainer, index) => {
+                if (isInViewport(entryContainer)) {
+                    entryContainer.classList.add('show');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', () => {
+            revealEntries();
+        });
+
+        revealEntries(); // Initially reveal the entries that are already in the viewport
+    </script>
+</body>
+</html>
