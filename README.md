@@ -2,4 +2,4 @@
 
 * Copy, HTML and CSS are all provided by ChatGPT 3.5
 
-Result here: https://prismatic-tanuki-6b2cca.netlify.app/
+Result here: [https://ai-generated-agency.netlify.app/](https://ai-generated-agency.netlify.app/)
