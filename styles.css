@@ -65,13 +65,12 @@ body {
     height: 300px;
     padding-bottom: 50px;
     padding-top: 50px; 
-
   }
 
   .header-video {
     max-width: 100%;
     position: fixed;
-    top: 0;
+    top: -150px;
     z-index: 1;
     min-width: 710px;
   }
